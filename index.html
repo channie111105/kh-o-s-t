@@ -1,12 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trangxinhhh</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khảo sát Trần Thị Kiều Trang</title>
+  <style>
+    /* Giao diện trang */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+      overflow: hidden; /* Ẩn các thanh cuộn */
+    }
+
+    h1 {
+      color: #e74c3c;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Container chứa các nút, đảm bảo chúng nằm ngang */
+    .btn-container {
+      display: flex;
+      justify-content: center; /* Căn giữa các nút */
+      align-items: center;
+      width: 100%;
+      gap: 20px; /* Khoảng cách giữa các nút */
+    }
+
+    /* Nút Có và Nút Không */
+    .yes-btn, .no-btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 150px; /* Cả hai nút có kích thước giống nhau */
+      display: inline-block;
+    }
+
+    /* Nút Có */
+    .yes-btn {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .yes-btn:hover {
+      background-color: #27ae60;
+    }
+
+    /* Nút Không */
+    .no-btn {
+      background-color: #e74c3c;
+      color: white;
+      position: absolute; /* Đảm bảo nút "Không" có thể di chuyển */
+      transition: all 0.3s ease; /* Thêm hiệu ứng chuyển động mượt mà */
+    }
+
+    .no-btn:hover {
+      background-color: #c0392b;
+    }
+
+  </style>
 </head>
 <body>
-    <h1>trang xinh gái</h1>
+  <h1>Bạn có thấy Trần Thị Kiều Trang xinh gái không?</h1>
+
+  <!-- Container chứa các nút -->
+  <div class="btn-container">
+    <!-- Nút Có -->
+    <button class="yes-btn" onclick="showYesMessage()">Có</button>
+
+    <!-- Nút Không -->
+    <button class="no-btn" onclick="moveButton()">Không</button>
+  </div>
+
+  <script>
+    // Hiển thị thông báo khi nhấn nút "Có"
+    function showYesMessage() {
+      alert("Trang biết bạn sẽ trả lời vầy mà! 😄");
+    }
+
+    // Di chuyển nút "Không" mỗi lần bấm
+    function moveButton() {
+      const button = document.querySelector('.no-btn');
+      // Tính vị trí ngẫu nhiên để di chuyển nút
+      const randomX = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+      const randomY = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+
+      // Di chuyển nút "Không"
+      button.style.left = randomX + "px";
+      button.style.top = randomY + "px";
+    }
+  </script>
 </body>
 </html>
